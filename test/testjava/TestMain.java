@@ -23,6 +23,7 @@ public class TestMain {
      *  -negative numbers
      *  -decimals
      *  -empty string
+     *  -decimal without leading 0
      *  -infinity
      *  -incorrectly formatted numbers
      *  -includes commas or such //maybe more important
@@ -44,7 +45,9 @@ public class TestMain {
                 //test with decimals
                 { {"1", "4.5", "15", "9", "4"}, {"1", "4", "4.5", "9", "15"} },
                 //test with complex decimals
-                { {"1", "4.22222", "15", "9", "4.5"}, {"1", "4.22222", "4.5", "9", "15"} },
+                { {"1", "4.22", "15", "9", "4.5"}, {"1", "4.22", "4.5", "9", "15"} },
+                //test with negative decimals
+                { {"1", "-4.22", "15", "9", "4.5"}, {"-4.22", "1", "4.5", "9", "15"} },
         });
     }
 

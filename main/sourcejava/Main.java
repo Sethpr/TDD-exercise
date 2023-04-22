@@ -13,9 +13,11 @@ public class Main {
         else if(right.charAt(0) == '-' && left.charAt(0) != '-'){
             return 1;
         } else {
-            if(left.length() > right.length()){
+            String leftPreDecimal = (left.contains(".")) ? left.substring(0, left.indexOf(".")) : left;
+            String rightPreDecimal = (right.contains(".")) ? right.substring(0, right.indexOf(".")) : right;
+            if(leftPreDecimal.length() > rightPreDecimal.length()){
                 val =  1;
-            } else if (left.length() < right.length()){
+            } else if (leftPreDecimal.length() < rightPreDecimal.length()){
                 val =  -1;
             } else {
                 val = left.compareTo(right);
@@ -26,7 +28,6 @@ public class Main {
 
     public String[] sortStringsAsNumbers(String[] arrayToSort) {
         Arrays.sort(arrayToSort, stringToNumberComparator);
-        //System.out.println(arrayToSort[arrayToSort.length -1]);
         return arrayToSort;
     }
 }
